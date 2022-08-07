@@ -22,7 +22,7 @@ load("@rules_fuzzing//fuzzing:cc_defs.bzl", "cc_fuzz_test")
 load("//tcmalloc:copts.bzl", "TCMALLOC_DEFAULT_COPTS")
 load("//tcmalloc:variants.bzl", "create_tcmalloc_benchmark", "create_tcmalloc_testsuite")
 
-package(default_visibility = ["//visibility:private"])
+package(default_visibility = ["//visibility:public"])
 
 licenses(["notice"])
 
@@ -100,12 +100,12 @@ cc_library(
         "tcmalloc.h",
     ],
     copts = TCMALLOC_DEFAULT_COPTS,
-    linkstatic = 1,
+#    linkstatic = 1,
     visibility = ["//visibility:public"],
     deps = tcmalloc_deps + [
         ":common",
     ],
-    alwayslink = 1,
+#    alwayslink = 1,
 )
 
 # Provides tcmalloc always; use per-thread mode.
